@@ -1,0 +1,7 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+server:
+    path:      /servers/{server}
+    defaults:  { _controller: AppBundle:Servers:index }
