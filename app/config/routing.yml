@@ -2,6 +2,24 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-server:
-    path:      /servers/{server}
-    defaults:  { _controller: AppBundle:Servers:index }
+file_list:
+    path:      /file/list
+    defaults:  { _controller: AppBundle:File:list }
+
+file_add:
+    path:      /file/add
+    defaults:  { _controller: AppBundle:File:add }
+    methods:   [GET]
+    
+file_add_proccess:
+    path:      /file/add/proccess
+    defaults:  { _controller: AppBundle:File:addProccess }
+    methods:   [POST]
+    
+login:
+    path:      /auth
+    defaults:  { _controller: AppBundle:User:login }
+
+default:
+    path:      /
+    defaults:  { _controller: AppBundle:File:list }

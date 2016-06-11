@@ -1,13 +1,104 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>{% block title %}Авторизация{% endblock %}</title>
+		<meta name="generator" content="Symfony 3" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		{% stylesheets '@bootstrap_css' %}
+		<link href="{{ asset_url }}" rel="stylesheet" type="text/css" media="screen">
+		{% endstylesheets %}
+		<link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+		{% block stylesheets %}{% endblock %}
+	</head>
+	<body>
+		{% block topbar %}
+		<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Тестовое задание для iKantam</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Выход</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
+		<div class="container-fluid">
+			<div class="row">
+				{% block navigation %}
+				<div class="col-sm-3">
+					<hr>
+					<ul class="nav nav-stacked">
+						<li><a href="{{ path('file_add') }}">Загрузить файл</a></li>
+						<li><a href="{{ path('file_list') }}">Просмотреть все файлы</a></li>
+					</ul>
+				</div>
+				{% endblock %}
+				{% block body %}
+				<div class="col-sm-9">
+					<hr>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="panel panel-default">
+								<div class="panel-heading"><h4>Reports</h4></div>
+								<div class="panel-body">
+
+									<small>Success</small>
+									<div class="progress">
+										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
+											<span class="sr-only">72% Complete</span>
+										</div>
+									</div>
+									<small>Info</small>
+									<div class="progress">
+										<div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+											<span class="sr-only">20% Complete</span>
+										</div>
+									</div>
+									<small>Warning</small>
+									<div class="progress">
+										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+											<span class="sr-only">60% Complete (warning)</span>
+										</div>
+									</div>
+									<small>Danger</small>
+									<div class="progress">
+										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+											<span class="sr-only">80% Complete</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endblock %}
+			</div>
+		</div>
+		<!-- /Main -->
+		{% block copyright %}
+		<footer class="text-center">В работе использован Bootstrap 3 шаблон разработки <a href="http://www.bootply.com/85850"><strong>Bootply.com</strong></a></footer>
+		{% endblock %}
+		{% block modals %}
+		
+		{% endblock %}
+		
+		{% javascripts '@jquery' '@bootstrap_js' %}
+		<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+		<script src="{{ asset('js/scripts.js') }}"></script>
+		{% block javascripts %}{% endblock %}
+	</body>
 </html>

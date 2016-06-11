@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Список загруженных файлов{% endblock %}
+{% block body %}Здесь будет список загруженных файлов.{% endblock %}
+{% block modals %}{% endblock %}
+{% block copyright %}{% endblock %}
+{% block navigation %}
+<div class="col-sm-3">
+	<hr>
+	<ul class="nav nav-stacked">
+		<li><a href="{{ path('file_add') }}">Загрузить файл</a></li>
+		<li class="active"><a href="{{ path('file_list') }}">Просмотреть все файлы</a></li>
+	</ul>
+</div>
+{% endblock %}
