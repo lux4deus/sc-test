@@ -14,11 +14,14 @@ class FileController extends Controller
      * @Route("/file/list", name="file_list")
      */
     public function listAction(Request $request)
-    {	
+    {
+		$files = $this->getDoctrine()->getRepository("AppBundle:FileEntity")->findAll();
+		
         $request = new Request();
         // replace this example code with whatever you need
         return $this->render('default/file_list.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'files' => $files
         ]);
     }
     

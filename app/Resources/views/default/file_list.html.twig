@@ -1,7 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Список загруженных файлов{% endblock %}
-{% block body %}Здесь будет список загруженных файлов.{% endblock %}
+{% block body %}
+<div class="col-sm-9">
+	{% if files is not empty %}
+	<div class="row"><h3>Список загруженных файлов</h3></div>
+		{% for file in files %}
+		<div class="row"><a href="{{ asset('uploads/files/' ~ file.getDossier()) }}">{{ file.getName() }}</a></div>
+		{% endfor %}
+	{% else %}
+	<div class="row"><h3>Файлы на сервер еще не загружались</h3></div>
+	{% endif %}
+</div>
+{% endblock %}
 
 {% block navigation %}
 <div class="col-sm-3">
